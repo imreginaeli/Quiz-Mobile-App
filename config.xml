@@ -1,0 +1,37 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="gcccsassessmentreviewer" version="1.1.0" versionCode="10">
+	<script id="gcccsassessmentreviewer"/>
+		<name>GC CCS Assessment Reviewer</name>
+		<description>An application that flashes questions that was tackled past few years of college.</description>
+		<author>imreginaeli</author>
+		
+		<gap:platforms>
+			<gap:platform name="ios"/>
+			<gap:platform name="android"/>
+			<gap:platform name="webos"/>
+			<gap:platform name="symbian.wrt"/>
+			<gap:platform name="blackberry" project="widgets"/>
+		</gap:platforms>
+
+		<gap:plugin name="org.apache.cordova.media"/>
+		<icon src="images/icon.png" gap:role="default"/>
+
+		<preference name="phonegap-version" value="3.6.3"/>
+		<feature name="http://api.phonegap.com/1.0/device"/>
+		<feature name="http://api.phonegap.com/1.0/media"/>
+		<access origin="*" subdomains="true"/>
+		<access uri="*" subdomains="true"/>
+		<access uri="http://google.com" subdomains="true"/>
+		<feature name="http://api.phonegap.com/1.0/network"/>
+		
+		<feature name="InAppBrowser">
+			<param name="android-package" value="org.apache.cordova.InAppBrowser"/>
+		</feature>
+
+		<feature name="Media">
+			<param name="android-package" value="org.apache.cordova.media.AudioHandler"/>
+		</feature>
+
+		<preference name="orientation" value="auto"/>
+		<preference name="fullscreen" value="true"/>
+		<preference name="target-device" value="universal"/>
+</widget>
