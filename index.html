@@ -7,10 +7,19 @@
 			<script src="js/quiz_test.js"></script>
 			<script src="http://maps.googleapis.com/maps/api/js?AIzaSyAMhyXhjocxSVfulWBhV4EeQLPcUh9-Aag"></script>
 			<style>
-				body{
-					text-family: Segoe UI;
+				.pages{
+					font-family: serif;
+                    font-size: 130%;
+                    background: url(images/bg.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
 				}
 			
+                #menu{
+                    font-family: serif;
+                    font-size: 130%;   
+                }
+                
 				.buttons{
 					background-color: orange;
 					width: 70%;
@@ -235,18 +244,18 @@
 		
 		<body>				
 			<!--Startup Page-->
-			<div data-role="page" >
+			<div data-role="page" align="center" vertical-align="middle">
 				<br><br>
-				<img src="images/logo.png" style="width:100%; height:100%"/>
+				<img src="images/logo.png" style="width:70%; height:30%"/>
 			</div>
 		
 			<div data-role="page" id="menu">
 				<div data-role="header" data-position="fixed">
-					<img src="images/icon.png"/>
+					<img src="images/icon.png" />
 				</div>
-				
+				<br><br>
 				<div data-role="content" align="center">
-					<img src="images/banner.png">
+					<img src="images/banner.png" style="width:90%; height:50%; box-shadow: 5px 5px 5px #888888;"/>
 					<div class="btnAlign">
 						<div style="padding: 5%"></div>
 						<div id="exam" class="buttons" onclick="goExam() ">Take Exam</div><br>
@@ -268,11 +277,11 @@
 			<!--End of Startup Page-->
 			
 			<!--Exam page where user answers 50 questions-->
-			<div data-role="page" id="exam">
+			<div data-role="page" id="exam" class="pages">
 				<div data-role="header" data-position="fixed">
-					<a href="#menu" data-transition="slidedown" onclick="stop() "><img src="images/icon.png" /></a>
+                    <a href="#menu" data-transition="slidedown" onclick="stop() "><img src="images/icon.png" /></a>
 				</div>
-				
+				<br><br>
 				<div data-role="content" align="center">
 				<h3 id="test_status"></h3>
 					<h5 id="quest"></h5>
@@ -292,12 +301,12 @@
 			<!--End of Exam page-->
 			
 			<!--Displays the result of exam and tells the user if pass or fail.-->
-			<div data-role="page" id="result">
+			<div data-role="page" id="result" class="pages">
 				<div data-role="header" data-position="fixed">
 					<a href="#menu" data-transition="slidedown"><img src="images/icon.png" /></a>
 				</div>
 
-				
+				<br><br>
 				<div data-role="content" align="center">
 				<br><br>
 					<div>
@@ -330,8 +339,9 @@
 						frameborder="0"
 						allowTransparency="true">
 						</iframe>
+                    <div id="googleMap" style="width:300px;height:300px; " ></div>
 				</div>
-				<div id="googleMap" style="width:500px;height:380px; " ></div>
+				
 				
 				<div data-role="footer" data-position="fixed">
 					<h6>&copy 2015. ITE323L</h6>
@@ -340,11 +350,11 @@
 			<!--End of Result Page-->
 			
 			<!--Details of the application-->
-			<div data-role="page" id="about">
+			<div data-role="page" id="about" class="pages">
 				<div data-role="header" data-position="fixed">
 					<a href="#menu" data-transition="slidedown"><img src="images/icon.png" /></a>
 				</div>
-				
+				<br><br>
 				<div data-role="content" align="center">
 					<div class="aboutcontent">Definition</div>
 					<h6>A mobile application that serves as a preparation for Assessment Examination on May.</h6>
