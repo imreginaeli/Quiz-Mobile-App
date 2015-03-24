@@ -100,17 +100,28 @@
 				}
 			</style>
 			<script>
-				var pos=0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0, ans, random;
+				var pos=0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0, ans, val;
 				//goes to exam page
 				function _(x){
 					return document.getElementById(x);
 				}
 				
 				function goExam(){
-					//generate random numbers without repeatition
-					for (var a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ,20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, ,52 ,53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84], i = a.length; i--; ) {
-					random = a.splice(Math.floor(Math.random() * (i + 1)), 1)[0];
-				}
+					//generate random numbers without repetition
+					var a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ,20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52 ,53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84];
+					var max = 85;
+                    
+                    if (!a.length){
+                        for (var i = 0; i<max; i++){
+                            a.push(i);   
+                        }
+                    }
+                    
+                    var index = Math.floor(Math.random()*a.length);
+                    val = a[index];
+                    
+                    a.splice(index, 1);
+                    
 					//displays result if it has reached 50 questions
 					if(pos > 29){
 						window.location="#result";
@@ -134,11 +145,11 @@
 					
 					_("test_status").innerHTML = "Question " + (pos+1) + " of 30" ;
 					//retrieves elements in multi-dimensional array and displays it on element
-					question = questions[random][0];
-					chA = questions[random][1];
-					chB = questions[random][2];
-					chC = questions[random][3];
-					chD = questions[random][4];
+					question = questions[val][0];
+					chA = questions[val][1];
+					chB = questions[val][2];
+					chC = questions[val][3];
+					chD = questions[val][4];
 					
 					_("quest").innerHTML = question;
 					_("choiceA").innerHTML = chA;
@@ -154,7 +165,7 @@
 					document.getElementById('choiceA').onclick = function() {
 						ans = "A";
 						
-						if(ans == questions[random][5]){
+						if(ans == questions[val][5]){
 						correct++;
 						}
 						pos++;
@@ -164,7 +175,7 @@
 					document.getElementById('choiceB').onclick = function() {
 						ans = "B";
 						
-						if(ans == questions[random][5]){
+						if(ans == questions[val][5]){
 						correct++;
 						}
 						pos++;
@@ -174,7 +185,7 @@
 					document.getElementById('choiceC').onclick = function() {
 						ans = "C";
 						
-						if(ans == questions[random][5]){
+						if(ans == questions[val][5]){
 						correct++;
 						}
 						pos++;
@@ -184,7 +195,7 @@
 					document.getElementById('choiceD').onclick = function() {
 						ans = "D";
 						
-						if(ans == questions[random][5]){
+						if(ans == questions[val][5]){
 						correct++;
 						}
 						pos++;
@@ -259,7 +270,7 @@
 					<div class="btnAlign">
 						<div style="padding: 5%"></div>
 						<div id="exam" class="buttons" onclick="goExam() ">Take Exam</div><br>
-						<a href="#about" data-transition="slideup" style="text-decoration:none"><div id="about" class="buttons">About</div></a><br>
+						<a href="#about" data-transition="pop" style="text-decoration:none"><div id="about" class="buttons">About</div></a><br>
 					</div>
 				</div>
 				<div align="center">
@@ -279,7 +290,7 @@
 			<!--Exam page where user answers 50 questions-->
 			<div data-role="page" id="exam" class="pages">
 				<div data-role="header" data-position="fixed">
-                    <a href="#menu" data-transition="slidedown" onclick="stop() "><img src="images/icon.png" /></a>
+                    <a href="#menu" data-transition="pop" onclick="stop() "><img src="images/icon.png" /></a>
 				</div>
 				<br><br>
 				<div data-role="content" align="center">
@@ -303,7 +314,7 @@
 			<!--Displays the result of exam and tells the user if pass or fail.-->
 			<div data-role="page" id="result" class="pages">
 				<div data-role="header" data-position="fixed">
-					<a href="#menu" data-transition="slidedown"><img src="images/icon.png" /></a>
+					<a href="#menu" data-transition="pop"><img src="images/icon.png" /></a>
 				</div>
 
 				<br><br>
@@ -352,7 +363,7 @@
 			<!--Details of the application-->
 			<div data-role="page" id="about" class="pages">
 				<div data-role="header" data-position="fixed">
-					<a href="#menu" data-transition="slidedown"><img src="images/icon.png" /></a>
+					<a href="#menu" data-transition="pop"><img src="images/icon.png" /></a>
 				</div>
 				<br><br>
 				<div data-role="content" align="center">
