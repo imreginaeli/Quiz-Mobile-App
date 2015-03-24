@@ -13,7 +13,7 @@
 		</gap:platforms>
 
 		<gap:plugin name="org.apache.cordova.media"/>
-		<icon src="images/icon.png" gap:role="default"/>
+		<icon src="images/icon2.png" gap:role="default"/>
 
 		<preference name="phonegap-version" value="3.6.3"/>
 		<feature name="http://api.phonegap.com/1.0/device"/>
